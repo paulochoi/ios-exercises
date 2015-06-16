@@ -19,6 +19,7 @@
  */
 - (NSArray *) arrayOfStarTrekCharactersFromString:(NSString *)characterString;
 
+
 /**
  Converts an array of multiple Star Trek characters into a semicolon-separated string of said characters.
  
