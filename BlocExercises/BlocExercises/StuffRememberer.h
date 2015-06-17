@@ -26,6 +26,11 @@
  
  */
 
+
+@property (nonatomic, strong) NSMutableArray *aRememberLater;
+@property (nonatomic, strong) NSMutableArray *aCopyLater;
+@property (nonatomic, assign) CGFloat cgRememberLater;
+
 /**
  Indicates a mutable array to remember for later.
  
