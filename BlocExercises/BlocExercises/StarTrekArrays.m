@@ -23,10 +23,24 @@
 - (NSArray *) alphabeticallySortedStarTrekCharactersFromArray:(NSArray *)characterArray {
     /* WORK HERE */
     //convert to mutable array
-
-    NSArray *newArray = [characterArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithObjects:characterArray, nil];
     
-    return newArray;
+    NSLog(@"first array is %@", mutableArray);
+    
+    
+    NSMutableArray *mutableArray2 = [NSMutableArray arrayWithArray:characterArray];
+    
+    NSLog(@"second array is %@", mutableArray2);
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+    [mutableArray2 sortUsingDescriptors:(@[sortDescriptor])];
+    
+    //convert back to regular array
+    NSArray *returnArray = [mutableArray2 copy];
+    
+    NSLog(@"==============%@", mutableArray);
+    
+    return returnArray;
 }
 
 - (BOOL) characterArrayContainsWorf:(NSArray *)characterArray {
