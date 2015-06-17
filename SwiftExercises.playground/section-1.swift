@@ -8,7 +8,7 @@ Strings
 
 func favoriteCheeseStringWithCheese(cheese: String) -> String {
     // WORK HERE
-    return cheese
+    return "My favorite cheese is \(cheese)"
 }
 
 let fullSentence = favoriteCheeseStringWithCheese("cheddar")
@@ -20,14 +20,17 @@ Arrays & Dictionaries
 
 */
 
-let numberArray = [1, 2, 3, 4]
+var numberArray = [1, 2, 3, 4]
 // Add 5 to this array
 // WORK HERE
+numberArray.append(5)
 
-let numberDictionary = [1 : "one", 2 : "two", 3 : "three", 4 : "four"]
+var numberDictionary = [1 : "one", 2 : "two", 3 : "three", 4 : "four"]
 // Add 5 : "five" to this dictionary
 // WORK HERE
+numberDictionary[5] = "five"
 
+numberDictionary
 /*
 
 Loops
@@ -37,8 +40,16 @@ Loops
 // Use a closed range loop to print 1 - 10, inclusively
 // WORK HERE
 
+for i in 1...10 {
+    println(i)
+}
+
 // Use a half-closed range loop to print 1 - 10, inclusively
 // WORK HERE
+for i in 1..<11 {
+    println(i)
+}
+
 
 let worf = [
     "name": "Worf",
@@ -58,7 +69,17 @@ let characters = [worf, picard]
 func favoriteDrinksArrayForCharacters(characters:Array<Dictionary<String, String>>) -> Array<String> {
     // return an array of favorite drinks, like ["prune juice", "tea, Earl Grey, hot"]
     // WORK HERE
-    return []
+    
+    var returnArray : Array = [String]()
+    
+    for character in characters {
+        var charactersString : String = character["favorite drink"]!
+        
+        for eachDrink in charactersString.componentsSeparatedByString(",") {
+            returnArray.append(eachDrink)
+        }
+    }
+    return returnArray
 }
 
 let favoriteDrinks = favoriteDrinksArrayForCharacters(characters)
@@ -77,8 +98,19 @@ let strings = ["milk", "eggs", "bread", "challah"]
 
 // WORK HERE - make your function and pass `strings` in
 
+func concatStrings (Array<String>) -> String {
+    var returnString : String = ""
+    
+    for items in strings {
+        returnString += items + ";"
+    }
+    
+    return dropLast(returnString)
+}
+
 let expectedOutput = "milk;eggs;bread;challah"
 
+concatStrings(strings)
 /*
 
 Closures
@@ -89,3 +121,9 @@ let cerealArray = ["Golden Grahams", "Cheerios", "Trix", "Cap'n Crunch OOPS! All
 
 // Use a closure to sort this array alphabetically
 // WORK HERE
+
+var sortedArray2 = sorted(cerealArray, {$0 < $1})
+
+sortedArray2
+
+
