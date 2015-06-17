@@ -27,21 +27,28 @@
         }
         
     } else {
-        for (NSInteger i = otherNumber ; i <= number ; i-- ){
+        for (NSInteger i = otherNumber ; i >= number ; i-- ){
             [returnArray addObject:[NSNumber numberWithInteger:i]];
         }
     }
-    return returnArray;
+    
+    return [returnArray copy];
 }
 
 - (NSInteger) lowestNumberInArray:(NSArray *)arrayOfNumbers {
     /* WORK HERE */
-    NSInteger lowestNumber = [arrayOfNumbers[0] integerValue];
     
-    for (NSNumber *value in arrayOfNumbers){
-        if (lowestNumber > [value integerValue]) {
-            lowestNumber = [value integerValue];
+    NSInteger lowestNumber;
+    if (arrayOfNumbers.count > 0) {
+        lowestNumber = [arrayOfNumbers[0] integerValue];
+
+        for (NSNumber *value in arrayOfNumbers){
+            if (lowestNumber > [value integerValue]) {
+                lowestNumber = [value integerValue];
+            }
         }
+    } else {
+        lowestNumber = 0;
     }
     return lowestNumber;
 }
