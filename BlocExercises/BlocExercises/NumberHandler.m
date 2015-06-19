@@ -27,7 +27,7 @@
         }
         
     } else {
-        for (NSInteger i = otherNumber ; i >= number ; i-- ){
+        for (NSInteger i = otherNumber ; i <= number ; i++ ){
             [returnArray addObject:[NSNumber numberWithInteger:i]];
         }
     }
